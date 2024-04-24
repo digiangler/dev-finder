@@ -1,8 +1,8 @@
-import { ModeToggle } from '@/components/mode-toggle';
-import { ThemeProvider } from '@/components/theme-provider';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { Header } from './header';
+import { Providers } from './provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,18 +19,12 @@ export default function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div>
-            <ModeToggle />
-          </div>
+        <Providers>
+          <Header />
           {children}
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
 }
+/* TODO: 29:55:00からYouTune再生 */
